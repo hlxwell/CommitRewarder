@@ -1,0 +1,26 @@
+name: 'Commit Rewarder'
+author: 'Michael He'
+description: "Reward developers by each great commit, That's best incentives for them."
+branding:
+  icon: 'gift'
+  color: orange
+inputs:
+  model:
+    description: "OpenAI model name"
+    default: "gpt-3.5-turbo"
+    required: false
+  temperature:
+    description: "Temperature for the model"
+    default: '0.2'
+    required: false
+  language:
+    description: "Review language"
+    default: 'Chinese'
+    required: false
+runs:
+  using: docker
+  image: Dockerfile
+  args:
+  - --model=${{ inputs.model }}
+  - --temperature=${{ inputs.temperature }}
+  - --language=${{ inputs.language }}

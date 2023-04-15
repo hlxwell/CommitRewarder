@@ -1,0 +1,47 @@
+{
+  "name": "commit-rewarder",
+  "version": "1.0.0",
+  "private": true,
+  "main": "src/index.ts",
+  "repository": "git@github.com:hlxwell/commit-rewarder.git",
+  "author": "Michael.He <hlxwell@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.10.0",
+    "@actions/github": "^5.1.1",
+    "@octokit/rest": "^19.0.7",
+    "@thirdweb-dev/sdk": "^3.10.10",
+    "@thirdweb-dev/wallets": "^0.2.15",
+    "@types/node-fetch": "2.x",
+    "chatgpt": "^5.1.2",
+    "dotenv": "^16.0.3",
+    "ethers": "5",
+    "probot": "^12.3.0",
+    "unfetch": "^5.0.0"
+  },
+  "scripts": {
+    "start": "node dist/index.js",
+    "build": "rimraf dist && tsc --build tsconfig.json && cp src/fetch-polyfill.js dist/fetch-polyfill.js",
+    "dev": "yarn build && act -j test-run --container-architecture linux/amd64 --secret-file .secrets",
+    "lint": "eslint '**/*.ts' --cache --fix",
+    "es-build": "rimraf dist && esbuild src/index.ts --outfile=dist/index.js --bundle --platform=node --target=node16 --minify --sourcemap"
+  },
+  "devDependencies": {
+    "@types/jest": "28.1.1",
+    "@types/node": "^18.11.0",
+    "@typescript-eslint/eslint-plugin": "^5.56.0",
+    "@typescript-eslint/parser": "^5.56.0",
+    "cpy-cli": "4.1.0",
+    "esbuild": "0.14.43",
+    "eslint": "8.17.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-github": "4.3.6",
+    "eslint-plugin-jest": "26.5.3",
+    "eslint-plugin-prettier": "4.0.0",
+    "jest": "28.1.1",
+    "js-yaml": "4.1.0",
+    "prettier": "2.6.2",
+    "rimraf": "3.0.2",
+    "typescript": "4.7.3"
+  }
+}

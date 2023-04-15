@@ -1,0 +1,23 @@
+name: Commit Rewarder
+# https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#pull_request
+on: [push]
+jobs:
+  commit-rewarder:
+    name: Commit Rewarder
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-node@v3
+      with:
+        node-version: '18'
+    - name: Install dependencies
+      run: yarn install --production
+    - name: Commit Rewarder
+      uses: hlxwell/commit-rewarder@feature/test-branch
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      with:
+        model: "gpt-3.5-turbo"
+        temperature: 0.2
+        language: Chinese

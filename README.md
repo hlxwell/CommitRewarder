@@ -22,6 +22,10 @@ Need to gathering ideas from "contribution docs."
 - Need a homepage for each DAO, to display the amount of token to reward and today's rewards.
 - Issue NFT to user if user the contributor and could upgrade their NFT to higher level if their contribution match certain level.
 
+## Developer Portal NFT 1155 Contract on Polygon
+
+https://polygonscan.com/address/0xce78b5503c46da5485424d1623aaa407c846ecdf
+
 ## Open Source
 
 - https://github.com/transitive-bullshit/chatgpt-api
